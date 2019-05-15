@@ -1,13 +1,17 @@
 function initMap(coordinates) {
-    var myCoords = new google.maps.LatLng(coordinates.lat, coordinates.lng);
+    var centerCoordinates = new google.maps.LatLng(coordinates.centerLat, coordinates.centerLng);
     var mapOptions = {
-    center: myCoords,
-    zoom: 13
+        center: centerCoordinates,
+        zoom: 13
     };
+    
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-    var marker = new google.maps.Marker({
-        position: myCoords,
-        map: map
-    });
+    coordinates.markers.forEach(marker => {
+        const coords = new google.maps.LatLng(marker.latitude, marker.longitude);
+        new google.maps.Marker({
+            position: coords,
+            map: map
+        });
+    });   
 }
