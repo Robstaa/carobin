@@ -1,3 +1,6 @@
+<%= link_to(root_path) do %>
+  <button>Zurück</button>
+<% end %>
 <%= form_for @place do |f| %>
   Name: <%= f.text_field :name %>
   <%= f.submit %>
