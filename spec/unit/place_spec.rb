@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Place' do
-  let(:place) { Place.create!(name: 'Mein Restaurant', latitude: 1.5333, longitude: 42.425) }
+  let(:place) { Place.create!(name: 'Mein Restaurant', latitude: 1.5333, longitude: 42.425, location: 'Paul Linke Ufer') }
   it 'has a name' do
     expect(place.name).to eq('Mein Restaurant')
   end
@@ -12,5 +12,9 @@ RSpec.describe 'Place' do
 
   it 'has a longitude' do
     expect(place.longitude).to eq(42.425)
+  end
+
+  it 'has a location' do
+    expect(place.location).to eq('Paul Linke Ufer')
   end
 end

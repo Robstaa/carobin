@@ -1,7 +1,25 @@
+<% provide :head_tags do %>
+    <script>
+        document.addEventListener("turbolinks:load", () => {
+            autocompleteLocation({
+                centerLat: <%=@center.latitude%>, 
+                centerLng: <%=@center.longitude%>, 
+            });
+        });
+    </script>
+<% end %>
+
 <%= link_to(root_path) do %>
   <button>Zurück</button>
 <% end %>
+
 <%= form_for @place do |f| %>
   Name: <%= f.text_field :name %>
+  Bewertung: <%= f.number_field :rating %>
+  Location: <%= f.text_field :location, id: 'maps-location' %>
+  <%= fields_for :visits do |visit| %>
+    Datum: <%= visit.date_field :date %>
+    Notizen: <%= visit.text_area :notes %>
+  <% end %>
   <%= f.submit %>
 <% end %>

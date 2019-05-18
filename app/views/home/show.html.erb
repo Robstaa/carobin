@@ -1,7 +1,6 @@
 <% provide :head_tags do %>
     <script>
         document.addEventListener("turbolinks:load", () => {
-            console.log('DOM loaded');
             initMap({
                 centerLat: <%=@center.latitude%>, 
                 centerLng: <%=@center.longitude%>, 

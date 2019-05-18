@@ -15,3 +15,14 @@ function initMap(coordinates) {
         });
     });
 }
+
+function autocompleteLocation(coordinates) {
+    var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(coordinates.centerLat, coordinates.centerLng));
+
+    var input = document.getElementById('maps-location');
+    var options = {
+        bounds: defaultBounds
+    };
+    new google.maps.places.Autocomplete(input, options);
+};
