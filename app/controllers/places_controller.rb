@@ -33,7 +33,7 @@ class PlacesController < ApplicationController
     params.require(:place)
           .permit(
             :name, :location, :latitude, :longitude, :rating,
-            visit_attributes: [:date, :notes],
+            visit_attributes: [:date, :notes, images: []],
             vine_attributes: [:name, :rating]
           )
   end
@@ -48,7 +48,8 @@ class PlacesController < ApplicationController
   def visit_params
     {
       date: params[:visits][:date],
-      notes: params[:visits][:notes]
+      notes: params[:visits][:notes],
+      images: params[:visits][:images]
     }
   end
 

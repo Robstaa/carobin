@@ -17,6 +17,9 @@
 <% @visits.each do |visit| %>
   <p><%= DateService.format_date(visit.date) %></p>
   <p><%= visit.notes %></p>
+  <% visit.images.each do |image| %>
+    <%= image_tag image %>
+  <% end %>
 <% end %>
 <% @vines.each do |vine| %>
     <p><%= vine.name %></p>

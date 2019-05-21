@@ -20,6 +20,7 @@
   <%= fields_for :visits do |visit| %>
     Datum: <%= visit.date_field :date %>
     Notizen: <%= visit.text_area :notes %>
+    <%= visit.file_field :images, multiple: true, direct_upload: true %>
   <% end %>
   <%= fields_for :vines do |vine| %>
     Wein Name: <%= vine.text_field :name %>
