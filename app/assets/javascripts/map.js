@@ -9,10 +9,13 @@ function initMap(coordinates) {
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
     coordinates.markers.forEach(function (marker) {
         var coords = new google.maps.LatLng(marker.latitude, marker.longitude);
-        new google.maps.Marker({
+        var pin = new google.maps.Marker({
             position: coords,
             map: map
         });
+        pin.addListener('click', function() {
+            window.location = `/places/${marker.id.toString()}`
+        })
     });
 }
 
