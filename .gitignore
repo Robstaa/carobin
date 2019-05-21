@@ -32,3 +32,5 @@
 
 # Ignore local .env
 /.env.*.local
+
+/rspec_file.txt
