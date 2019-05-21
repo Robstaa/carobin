@@ -13,19 +13,19 @@ function initMap(coordinates) {
             position: coords,
             map: map
         });
-        pin.addListener('click', function() {
-            window.location = `/places/${marker.id.toString()}`
-        })
+        pin.addListener('click', function () {
+            window.location = "/places/".concat(marker.id.toString());
+        });
     });
 }
 
 function autocompleteLocation(coordinates) {
-    var defaultBounds = new google.maps.LatLngBounds(
-        new google.maps.LatLng(coordinates.centerLat, coordinates.centerLng));
-
+    var defaultBounds = new google.maps.LatLngBounds(new google.maps.LatLng(coordinates.centerLat, coordinates.centerLng));
     var input = document.getElementById('maps-location');
     var options = {
         bounds: defaultBounds
     };
     new google.maps.places.Autocomplete(input, options);
-};
+}
+
+;
