@@ -26,5 +26,9 @@
     Wein Name: <%= vine.text_field :name %>
     Wein Rating: <%= vine.number_field :rating %>
   <% end %>
+  <%= fields_for :vines do |vine| %>
+    Wein Name: <%= vine.text_field :name %>
+    Wein Rating: <%= vine.number_field :rating %>
+  <% end %>
   <%= f.submit %>
 <% end %>
