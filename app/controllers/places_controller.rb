@@ -1,15 +1,17 @@
 class PlacesController < ApplicationController
   def new
     @place = Place.new
-    @center = CenterService
     @place.visits.build
+    @place.visits.build.vines.build
+    @center = CenterService
   end
 
   def create
     @place = Place.new place_params
-    @place.visits.build(date: params[:visits][:date], notes: params[:visits][:notes])
-    @place.longitude = GeocoderService.longitude(params[:place][:location])
-    @place.latitude = GeocoderService.latitude(params[:place][:location])
+    visit = @place.visits.build(visit_params)
+    visit.vines.build(vine_params)
+    @place.longitude = place_longitude
+    @place.latitude = place_latitude
 
     if @place.save
       redirect_to root_path
@@ -18,11 +20,43 @@ class PlacesController < ApplicationController
     end
   end
 
+  def show
+    @place = Place.find(params[:id])
+    @visits = Visit.where(place_id: @place.id)
+    @vines = Vine.where(visit_id: @visits.ids)
+    @markers = Place.all.to_json.html_safe
+  end
+
   private
 
   def place_params
     params.require(:place)
           .permit(
-            :name, :location, :latitude, :longitude, :rating, visit_attributes: [:date, :notes])
+            :name, :location, :latitude, :longitude, :rating,
+            visit_attributes: [:date, :notes],
+            vine_attributes: [:name, :rating]
+          )
+  end
+
+  def vine_params
+    {
+      name: params[:vines][:name],
+      rating: params[:vines][:rating]
+    }
+  end
+
+  def visit_params
+    {
+      date: params[:visits][:date],
+      notes: params[:visits][:notes]
+    }
+  end
+
+  def place_longitude
+    GeocoderService.longitude(params[:place][:location])
+  end
+
+  def place_latitude
+    GeocoderService.latitude(params[:place][:location])
   end
 end
