@@ -1,0 +1,5 @@
+<% flash.each do |key, value| %>
+  <% value.split('<br>').each do |separated_value| %>
+    <%= content_tag :div, separated_value, class: "flash #{key}" %>
+  <% end %>
+<% end %>
