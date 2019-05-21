@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_091920) do
+ActiveRecord::Schema.define(version: 2019_05_19_213318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "place_picture"
+    t.bigint "visit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["visit_id"], name: "index_pictures_on_visit_id"
+  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -25,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_05_18_091920) do
     t.integer "rating"
   end
 
+  create_table "vines", force: :cascade do |t|
+    t.string "name"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "visit_id"
+    t.index ["visit_id"], name: "index_vines_on_visit_id"
+  end
+
   create_table "visits", force: :cascade do |t|
     t.date "date"
     t.datetime "created_at", null: false
@@ -34,5 +51,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_091920) do
     t.index ["place_id"], name: "index_visits_on_place_id"
   end
 
+  add_foreign_key "pictures", "visits"
+  add_foreign_key "vines", "visits"
   add_foreign_key "visits", "places"
 end
