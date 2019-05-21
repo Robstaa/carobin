@@ -20,15 +20,11 @@
   <%= fields_for :visits do |visit| %>
     Datum: <%= visit.date_field :date %>
     Notizen: <%= visit.text_area :notes %>
+    <%= fields_for :vines do |vine| %>
+      Wein Name: <%= vine.text_field :name %>
+      Wein Rating: <%= vine.number_field :rating %>
+    <% end %>
     <%= visit.file_field :images, multiple: true, direct_upload: true %>
-  <% end %>
-  <%= fields_for :vines do |vine| %>
-    Wein Name: <%= vine.text_field :name %>
-    Wein Rating: <%= vine.number_field :rating %>
-  <% end %>
-  <%= fields_for :vines do |vine| %>
-    Wein Name: <%= vine.text_field :name %>
-    Wein Rating: <%= vine.number_field :rating %>
   <% end %>
   <%= f.submit %>
 <% end %>
