@@ -1,0 +1,12 @@
+<% if @center.present? %>
+    <% provide :head_tags do %>
+        <script>
+            document.addEventListener("turbolinks:load", () => {
+                autocompleteLocation({
+                    centerLat: <%=@center.latitude%>, 
+                    centerLng: <%=@center.longitude%>, 
+                });
+            });
+        </script>
+    <% end %>
+<% end %>

@@ -1,0 +1,11 @@
+<% provide :head_tags do %>
+    <script>
+        document.addEventListener("turbolinks:load", () => {
+            initMap({
+                centerLat: <%=@center.latitude%>, 
+                centerLng: <%=@center.longitude%>, 
+                markers:   <%= @markers %>
+            });
+        });
+    </script>
+<% end %>

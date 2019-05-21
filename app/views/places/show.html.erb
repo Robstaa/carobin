@@ -1,16 +1,7 @@
-<% provide :head_tags do %>
-    <script>
-        document.addEventListener("turbolinks:load", () => {
-            initMap({
-                centerLat: <%= @place.latitude %>, 
-                centerLng: <%= @place.longitude %>,
-                markers:   <%= @markers %>
-            });
-        });
-    </script>
-<% end %>
+<% render 'head_map' %>
 
 <%= link_to 'Neuer Ort', new_place_path %>
+
 <h1><%= @place.name %></h1>
 <p><%= @place.location %></p>
 <p><%= @place.rating %></p>

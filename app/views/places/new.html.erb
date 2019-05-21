@@ -1,30 +1,7 @@
-<% provide :head_tags do %>
-    <script>
-        document.addEventListener("turbolinks:load", () => {
-            autocompleteLocation({
-                centerLat: <%=@center.latitude%>, 
-                centerLng: <%=@center.longitude%>, 
-            });
-        });
-    </script>
-<% end %>
+<% render 'head_autocomplete' %>
 
 <%= link_to(root_path) do %>
   <button>Zurück</button>
 <% end %>
 
-<%= form_for @place do |f| %>
-  Name: <%= f.text_field :name %>
-  Bewertung: <%= f.number_field :rating %>
-  Location: <%= f.text_field :location, id: 'maps-location' %>
-  <%= fields_for :visits do |visit| %>
-    Datum: <%= visit.date_field :date %>
-    Notizen: <%= visit.text_area :notes %>
-    <%= fields_for :vines do |vine| %>
-      Wein Name: <%= vine.text_field :name %>
-      Wein Rating: <%= vine.number_field :rating %>
-    <% end %>
-    <%= visit.file_field :images, multiple: true, direct_upload: true %>
-  <% end %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
