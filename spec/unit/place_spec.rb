@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-RSpec.describe 'Place' do
-  let(:place) { Place.create!(name: 'Mein Restaurant', latitude: 1.5333, longitude: 42.425, location: 'Paul Linke Ufer') }
+RSpec.describe 'Place (model)' do
+  let(:place) { create(:place) }
+  let(:visit) { create(:visit, place_id: place.id) }
+
   it 'has a name' do
-    expect(place.name).to eq('Mein Restaurant')
+    expect(place.name).to eq('TestPlace')
   end
 
   it 'has a latitude' do
@@ -15,6 +17,28 @@ RSpec.describe 'Place' do
   end
 
   it 'has a location' do
-    expect(place.location).to eq('Paul Linke Ufer')
+    expect(place.location).to eq('test location')
+  end
+
+  context 'validations' do
+    it 'validate that there is a name for an instance' do
+      place_without_name = build(:place, name: nil)
+      expect(place_without_name.save).to be_falsey
+    end
+
+    it 'validate that there is a latitude for an instance' do
+      place_without_latitude = build(:place, latitude: nil)
+      expect(place_without_latitude.save).to be_falsey
+    end
+
+    it 'validate that there is a longitude for an instance' do
+      place_without_latitude = build(:place, longitude: nil)
+      expect(place_without_latitude.save).to be_falsey
+    end
+
+    it 'validate that there is a location for an instance' do
+      place_without_location = build(:place, location: nil)
+      expect(place_without_location.save).to be_falsey
+    end
   end
 end
