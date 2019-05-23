@@ -1,0 +1,14 @@
+de:
+  activerecord:
+    models:
+      visit: 
+        one: 'Besuch'
+        other: 'Besuche'
+    attributes:
+      visit:
+        picture: 
+          one: 'Bild'
+          other: 'Bilder'
+  errors:
+    messages:
+      content_type_invalid: "hat einen ungültigen Dateityp: %{content_type}. Caro, ich hab dir doch gesagt: Nur .jpg, .gif oder .png ;)"
