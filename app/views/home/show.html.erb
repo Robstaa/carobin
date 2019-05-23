@@ -1,9 +1,9 @@
 <% render 'head' %>
 
-<%= image_tag 'night_background_gradient.png', class: 'background-image' %>
+<div class='background-image'></div>
 <%= image_tag 'logo_transparent.png', class: 'logo' %>
 <%= link_to new_place_path do %>
-  <button class='background-cta'>Neuer Eintrag</button>
+  <button class='background-cta'><p>Neuer Eintrag</p></button>
 <% end %>
 <%= link_to '#map', class: 'scroll-link' do %>
   <%= image_tag 'map.png', class: 'background-map' %>
