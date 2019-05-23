@@ -20,23 +20,13 @@ RSpec.describe 'Place (model)' do
     expect(place.location).to eq('test location')
   end
 
-  context 'validations' do
-    it 'validate that there is a name for an instance' do
+  context 'when saved' do
+    it 'validates that there is a name for an instance' do
       place_without_name = build(:place, name: nil)
       expect(place_without_name.save).to be_falsey
     end
 
-    it 'validate that there is a latitude for an instance' do
-      place_without_latitude = build(:place, latitude: nil)
-      expect(place_without_latitude.save).to be_falsey
-    end
-
-    it 'validate that there is a longitude for an instance' do
-      place_without_latitude = build(:place, longitude: nil)
-      expect(place_without_latitude.save).to be_falsey
-    end
-
-    it 'validate that there is a location for an instance' do
+    it 'validates that there is a location for an instance' do
       place_without_location = build(:place, location: nil)
       expect(place_without_location.save).to be_falsey
     end
