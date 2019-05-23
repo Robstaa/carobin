@@ -1,3 +1,13 @@
 <% render 'head' %>
-<%= link_to 'Neuer Ort', new_place_path %>
+
+<%= image_tag 'night_background_gradient.png', class: 'background-image' %>
+<%= image_tag 'logo_transparent.png', class: 'logo' %>
+<%= link_to new_place_path do %>
+  <button class='background-cta'>Neuer Eintrag</button>
+<% end %>
+<%= link_to '#map', class: 'scroll-link' do %>
+  <%= image_tag 'map.png', class: 'background-map' %>
+  <%= image_tag 'white_arrow.gif', class: 'background-map-arrow' %>
+<% end %>
+
 <%= render 'layouts/map' %>
