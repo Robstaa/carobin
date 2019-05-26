@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'geocoder'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'nilify_blanks'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2'
@@ -22,7 +23,9 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'dotenv-rails'
   gem 'pry-byebug'
-  gem 'rb-readline' # Installed fot using byebug
+  gem 'rb-readline'
+  gem 'guard-rspec'
+  gem 'guard-livereload'
 end
 
 group :development do

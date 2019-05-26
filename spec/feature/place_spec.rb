@@ -2,7 +2,7 @@ describe 'Place (feature)', type: :feature do
   context 'new view' do
     it 'is accessible from the homepage' do
       visit root_path
-      click_on 'Neuer Ort'
+      click_link 'Neuer Eintrag'
       expect(page).to have_current_path(new_place_path)
     end
 

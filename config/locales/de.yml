@@ -12,3 +12,4 @@ de:
   errors:
     messages:
       content_type_invalid: "hat einen ungültigen Dateityp: %{content_type}. Caro, ich hab dir doch gesagt: Nur .jpg, .gif oder .png ;)"
+      place_not_unique: "wurde schon einmal angelegt."
