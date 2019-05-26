@@ -1,7 +1,11 @@
 <% render 'head_autocomplete' %>
 
-<%= link_to(root_path) do %>
-  <button>Zurück</button>
-<% end %>
+<div class="form-background-image">
+  <div class="center-container">
+    <%= link_to(root_path) do %>
+      <button class='back-button box-shadow-1'>Zurück</button>
+    <% end %>
+    <%= render 'form' %>
+  </div>
+</div>
 
-<%= render 'form' %>

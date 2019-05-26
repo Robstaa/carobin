@@ -23,7 +23,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  box-shadow: 2px 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   transition: all 0.4s ease-out;
 }
@@ -39,13 +38,12 @@
   transform: translateX(-2px);
   width: 204px;
   height: 51px;
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.6);
   font-size: 1.54em;
 }
 
 .background-map {
   position: absolute;
-  right: 70px;
+  right:  calc(50% - 20px);  
   bottom: 60px;
   z-index: 100;
   width: 40px;
@@ -67,7 +65,7 @@
 
 .background-map-arrow {
   position: absolute;
-  right: 50px;
+  right: calc(50% - 40px);
   bottom: -10px;
   z-index: 100;
   width: 80px;
