@@ -14,5 +14,5 @@ jQuery(document).ready(function ($) {
     $('html,body').animate({
       scrollTop: $anchor.offset().top - anchorOffset
     }, 500);
-  })
+  });
 });
