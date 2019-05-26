@@ -1,6 +1,6 @@
 .form-background-image {
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #010618),
-  url('camping_background.png');
+  image-url('camping_background.png');
   height: 100vh;
   position: relative;
   background-position: center center;
@@ -60,6 +60,17 @@
   margin: 60px auto 10px auto;
 }
 
+.form-card .field_with_errors {
+    min-width: 200px;
+    max-width: 400px;
+}
+
+.form-card .field_with_errors input {
+  background-color: #d84f4f;
+  color: white;
+  width: 100%;
+}
+
 .form-wrapper {
   width: 100%;
   height: 100%;
@@ -102,7 +113,7 @@ textarea.form-text-input {
 }
 
 .create-button {
-  margin: 5px auto 15px auto;
+  margin: 25px auto 15px auto;
   width: 200px;
   height: 50px;
   background-image: linear-gradient(to right, #970747, #a52e5c, #b14771, #bd5f86, #c9759a);background-image: linear-gradient(to right, #970747, #a31853, #af255f, #ba316c, #c63c79);
