@@ -1,5 +1,7 @@
-<% flash.each do |key, value| %>
-  <% value.split('<br>').each do |separated_value| %>
-    <%= content_tag :div, separated_value, class: "flash #{key}" %>
+<div class='flash-container'>
+  <% flash.each do |key, value| %>
+    <% value.split('<br>').each do |separated_value| %>
+        <%= content_tag :div, separated_value, class: "flash #{key} box-shadow-5" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>

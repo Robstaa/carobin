@@ -12,8 +12,10 @@ class PlacesController < ApplicationController
     @place.latitude = place_latitude
     build_visit_and_vine
 
+
     if @place.save
-      redirect_to root_path
+      flash[:success] = "#{@place.name} wurde erfolgreich erstellt!"
+      redirect_to place_path(@place)
     else
       flash[:alert] = error_messages
       render :new
