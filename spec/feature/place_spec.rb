@@ -1,4 +1,5 @@
 describe 'Place (feature)', type: :feature do
+  CTA_TEXT = 'Besuch anlegen'
   context 'new view' do
     it 'is accessible from the homepage' do
       visit root_path
@@ -16,7 +17,7 @@ describe 'Place (feature)', type: :feature do
       visit new_place_path
       fill_in('place_name', with: 'Caro')
       fill_in('maps-location', with: 'ZOLA, Paul-Lincke-Ufer, Berlin, Deutschland')
-      click_on 'Place erstellen'
+      click_on CTA_TEXT
       last_place = Place.last
       expect(last_place.name).to eq('Caro')
     end
@@ -26,7 +27,7 @@ describe 'Place (feature)', type: :feature do
       fill_in('place_name', with: 'Caro')
       fill_in('maps-location', with: 'ZOLA, Paul-Lincke-Ufer, Berlin, Deutschland')
       fill_in('visits_date', with: '11.11.2020')
-      click_on 'Place erstellen'
+      click_on CTA_TEXT
       last_visit = Visit.last
       date = DateService.parse_date('Wed, 11 Nov 2020')
       expect(last_visit.date).to eq(date)
@@ -37,7 +38,7 @@ describe 'Place (feature)', type: :feature do
       fill_in('place_name', with: 'Caro')
       fill_in('maps-location', with: 'ZOLA, Paul-Lincke-Ufer, Berlin, Deutschland')
       fill_in('visits_date', with: '11.11.2020')
-      click_on 'Place erstellen'
+      click_on CTA_TEXT
       last_visit = Visit.last
       last_place = Place.last
       expect(last_visit.place_id).to eq(last_place.id)
@@ -50,7 +51,7 @@ describe 'Place (feature)', type: :feature do
       fill_in('visits_date', with: '11.11.2020')
       fill_in('vines_name', with: 'testvine')
       fill_in('vines_rating', with: 4)
-      click_on 'Place erstellen'
+      click_on CTA_TEXT
       last_visit = Visit.last
       last_vine = Vine.last
       expect(last_vine.visit_id).to eq(last_visit.id)

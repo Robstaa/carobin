@@ -1,15 +1,16 @@
 RSpec.describe 'Image (feature)', type: :feature do
+  CTA_TEXT = 'Besuch anlegen'
   it 'can upload .jpg files' do
     visit new_place_path
     attach_file('visits_images', test_jpg)
-    click_on 'Place erstellen'
+    click_on CTA_TEXT
     expect(last_image_content_type).to eq('image/jpg')
   end
 
   it 'can upload .png files' do
     visit new_place_path
     attach_file('visits_images', test_png)
-    click_on 'Place erstellen'
+    click_on CTA_TEXT
     expect(last_image_content_type).to eq('image/png')
   end
 end 
