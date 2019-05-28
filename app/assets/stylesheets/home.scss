@@ -1,10 +1,50 @@
-.background-image {
-  background-image: image-url('night_background_gradient.png');
-  height: 100vh;
+.background {
+  background-image: linear-gradient(to right bottom, #b6fcff, #ccfbff, #e4faff, #f6fbff, #ffffff);
   position: relative;
+  height: 100vh;
+  max-height: 1200px;
+  min-height: 600px;
+}
+
+.background-image {
+  background-image: image-url('jungle.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  -webkit-filter: drop-shadow(1px 2px rgba(0, 0, 0, 0.32));
+  filter: drop-shadow(1px 2px rgba(0, 0, 0, 0.32));
+}
+
+.hero {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 80px;
+}
+
+@media(max-width: 900px) {
+  .hero {
+    left: 0;
+    right: 0;
+  }
+}
+
+.hero-slogan {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.logo {
+  width: 200px;
 }
 
 .background-cta {
@@ -14,7 +54,7 @@
   z-index: 100;
   width: 200px;
   height: 50px;
-  background-image: linear-gradient(to right, #970747, #a52e5c, #b14771, #bd5f86, #c9759a);background-image: linear-gradient(to right, #970747, #a31853, #af255f, #ba316c, #c63c79);
+  background-image: linear-gradient(to right, #970747, #a52e5c, #b14771, #bd5f86, #c9759a);
   color: white;
   border-radius: 5px;
   border: none;
@@ -74,14 +114,4 @@
   filter: drop-shadow(1.5px 3px rgba(0, 0, 0, 0.5));
   opacity: 0.5;
   transition: opacity 0.5s ease-out;
-}
-
-.logo {
-  position: absolute;
-  left: calc(50% - 150px);
-  top: 50px;
-  z-index: 100;
-  width: 300px;
-  -webkit-filter: drop-shadow(3px 6px rgba(0, 0, 0, 0.5));
-  filter: drop-shadow(3px 6px rgba(0, 0, 0, 0.5));
 }

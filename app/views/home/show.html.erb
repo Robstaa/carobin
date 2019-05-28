@@ -1,13 +1,18 @@
 <% render 'head' %>
+<div class="background">
+  <div class='background-image'></div>
+  <div class='hero'>
+    <%= image_tag 'logo_transparent.png', class: 'logo' %>
+    <p class='hero-slogan'>Because together is better</p>
+  </div>
+  <%= link_to new_place_path do %>
+    <button class='background-cta box-shadow-3'><p>Neuer Eintrag</p></button>
+  <% end %>
+  <%= link_to '#map', class: 'scroll-link' do %>
+    <%= image_tag 'map.png', class: 'background-map scroll-link' %>
+    <%= image_tag 'white_arrow.gif', class: 'background-map-arrow scroll-link' %>
+  <% end %>
+</div>
 
-<div class='background-image'></div>
-<%= image_tag 'logo_transparent.png', class: 'logo' %>
-<%= link_to new_place_path do %>
-  <button class='background-cta box-shadow-3'><p>Neuer Eintrag</p></button>
-<% end %>
-<%= link_to '#map', class: 'scroll-link' do %>
-  <%= image_tag 'map.png', class: 'background-map scroll-link' %>
-  <%= image_tag 'white_arrow.gif', class: 'background-map-arrow scroll-link' %>
-<% end %>
 
 <%= render 'layouts/map' %>
