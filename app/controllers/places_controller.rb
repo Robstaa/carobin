@@ -36,8 +36,8 @@ class PlacesController < ApplicationController
   end
 
   def build_visit_and_vine
-    visit = @place.visits.build(visit_params)
-    visit.vines.build(vine_params)
+    visit = @place.visits.build(visit_params) if visit_params['date'].present?
+    visit.vines.build(vine_params) if vine_params['name'].present?
   end
 
   def place_params
