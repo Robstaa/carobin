@@ -1,5 +1,7 @@
 module DateService
   def format_date(date)
+    return if date.nil?
+
     I18n.l(date, format: '%A, %e. %B %Y').to_s
   end
 
